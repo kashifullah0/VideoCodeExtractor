@@ -2,7 +2,7 @@ import os
 import cv2
 import pytesseract
 from PIL import Image
-import tempfil  e
+import tempfile
 
 class CodeExtractor:
 
