@@ -3,6 +3,7 @@ from dotenv import load_dotenv
 import streamlit as st
 from langchain_google_genai import ChatGoogleGenerativeAI
 import os
+
 load_dotenv()
 st.title("Video Code Extractor")
 st.caption("Extract code from any type of  coding video in one click")
@@ -16,7 +17,8 @@ if file_upload:
 
     llm = ChatGoogleGenerativeAI(model="gemini-1.5-flash")
 
-    response = llm.invoke(f"I am providing you code, fix it do not add any explanation or comment: {text}").content
+    response = llm.invoke(f"Please fix the provided code without adding any explanations or comments. Remove any duplicate or unnecessary code. Provide only the corrected code: {text}").content
+
 
     st.subheader("Fixed Code:")
     st.code(response, language="python")
